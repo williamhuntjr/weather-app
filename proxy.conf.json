@@ -1,0 +1,19 @@
+{
+
+"/weather-app**": {
+
+"target": "https://xniz-linux.com:4300/weather-app/",
+
+"secure":true,
+
+"logLevel":"debug",
+
+"pathRewrite": {
+
+        "^/weather-app": ""
+
+    }
+
+}
+
+}

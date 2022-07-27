@@ -1,0 +1,32 @@
+<div class="row" *ngIf="cities.weatherData == 0">
+  <div id="loading-screen" class="col-md-12">
+    <div>
+	  <p>Loading weather data...</p>
+	</div>
+  </div>
+</div>
+
+<div class="row" id="weather-display" *ngIf="cities.weatherData != 0">
+  
+  <div class="col-md-12">
+    <div id="current-weather">
+      <div class="col-md-6" class="centered">
+        <img src="assets/vclouds/{{ cities.weatherData.weather[0].main }}.png">
+	    <h5>{{ cities.weatherData.name }}</h5>
+	    <p>{{ cities.weatherData.main.temp }} °F | {{ capitalize(cities.weatherData.weather[0].description) }}</p>
+	    <a href="https://openweathermap.org/city/{{ cities.weatherData.id }}"><button class="btn btn-info">View forecast</button></a>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  <div id="weather-zip" class="col-md-12">
+    <hr>
+    <p>You can also view weather by inputting your zip code below.</p>
+	<div class="form-group">
+      <input type="text" class="form-control" id="usr" #zipcode>
+    </div>
+    <button class="btn btn-info" (click)="cities.setLocationZIP(zipcode.value)">Search</button>
+  </div>
+</div>
